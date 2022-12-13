@@ -10,18 +10,14 @@ galleryContainer.insertAdjacentHTML('beforeend', galleryItemsMurkup);
 function createGalleryItemsMurkup(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
         return `
-        <div class="gallery__item">
-            <a class="gallery__item" href="${original}">
-                <img class="gallery__image" src="${preview}" alt="" title="${description}"/>
+        <a class="gallery__item" href="${original}">
+                <img class="gallery__image" src="${preview}" alt="${description}"/>
             </a>
-        </div>
+        
         `
     })
         .join('');
     
 }
 
-let gallery = new SimpleLightbox('.gallery a', {captionDelay: 250});
-gallery.on('show.simplelightbox', function () {
-    
-});
+let gallery = new SimpleLightbox('.gallery a', {captionsData: 'alt', captionDelay: 250});
